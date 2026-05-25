@@ -29,8 +29,11 @@ export default function Home() {
           contents: [{ parts: [{ text: prompt }] }]
         })
       });
-      if (!response.ok) throw new Error('API error');
+
       const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error?.message || 'API error');
+      }
       const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
       
       const parsed = text.split(/\n|\r/)
@@ -110,10 +113,6 @@ export default function Home() {
       <footer style={{textAlign: 'center', padding: '40px 0', color: 'var(--text-secondary)', fontSize: '0.875rem'}}>
         Built with ❤️ by Julius • Powered by Google Gemini
       </footer>
-    </div>
-  );
-}
->
     </div>
   );
 }
