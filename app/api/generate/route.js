@@ -19,6 +19,14 @@ export async function POST(req) {
     });
 
     const data = await response.json();
+
+    if (response.status === 429) {
+      console.error('Gemini API Quota Exceeded (429)');
+      return NextResponse.json({ 
+        error: 'Rate limit exceeded. Please wait a moment and try again.',
+        details: data.error?.message 
+      }, { status: 429 });
+    }
     return NextResponse.json(data, { status: response.status });
   } catch (err) {
     console.error('API Route Error:', err);
