@@ -44,8 +44,8 @@ export default function Home() {
         const fallback = text.split(/\n\n/).map(q => q.replace(/[\*\"]/g, '').trim()).filter(q => q.length > 10);
         setQuestions(fallback.length > 0 ? fallback.slice(0, 3) : [text.trim()]);
       }
-    } catch {
-      setError('Failed to fetch questions. Please try again.');
+    } catch (err) {
+      setError(err.message || 'Failed to fetch questions. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -110,6 +110,10 @@ export default function Home() {
       <footer style={{textAlign: 'center', padding: '40px 0', color: 'var(--text-secondary)', fontSize: '0.875rem'}}>
         Built with ❤️ by Julius • Powered by Google Gemini
       </footer>
+    </div>
+  );
+}
+>
     </div>
   );
 }

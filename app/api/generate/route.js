@@ -5,9 +5,12 @@ export async function POST(req) {
     const body = await req.json();
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-    if (!GEMINI_API_KEY) {
-      console.error('GEMINI_API_KEY is missing');
-      return NextResponse.json({ error: 'API key not configured' }, { status: 500 });
+    if (!GEMINI_API_KEY || GEMINI_API_KEY.includes('your_api_key_here')) {
+      console.error('[Security] Attempted to use missing or placeholder API key.');
+      return NextResponse.json({ 
+        error: 'Configuration Error', 
+        details: 'API key is not configured on the server. Please check environment variables.' 
+      }, { status: 500 });
     }
 
     const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${GEMINI_API_KEY}`;
