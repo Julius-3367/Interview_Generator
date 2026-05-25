@@ -1,16 +1,35 @@
-# React + Vite
+# AI Interview Question Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, modern web application built as a technical demonstration for the Founding Engineer / Technical Co-Founder role. This project leverages Google's Gemini AI to generate role-specific interview questions with a focus on speed, security, and a polished user experience.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+[Insert your Netlify/Vercel URL here]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Technical Stack
+- **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
+- **AI Engine**: [Google Gemini 1.5 Flash](https://ai.google.dev/)
+- **Styling**: Modern CSS with Glassmorphism and Responsive Design
+- **Hosting**: Netlify / Vercel (Serverless)
 
-## React Compiler
+## ✨ Key Features
+- **Intelligent Generation**: Tailored interview questions using structured prompting.
+- **Glassmorphism UI**: A sleek, modern aesthetic that stands out from standard technical screens.
+- **Server-Side Security**: API keys are managed via environment variables and never exposed to the client.
+- **Optimized Performance**: Built with a unified full-stack architecture for near-instant response times.
+- **UX Touches**: Integrated "Copy to Clipboard" and smooth entry animations.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧠 Architectural Decisions
+### Why Next.js?
+I chose Next.js to provide a unified full-stack environment. By using **Next.js API Routes**, I eliminated the need for a separate proxy server, allowing the entire application to be hosted as a single serverless entity. This reduces complexity and ensures the app is highly scalable and cost-effective for an early-stage startup.
 
-## Expanding the ESLint configuration
+### Why Gemini 1.5 Flash?
+For a real-time interview tool, latency is key. I selected the `gemini-1.5-flash` model because it offers the best balance of speed and reasoning capabilities. It provides high-quality questions while maintaining the "snappiness" users expect from modern AI tools.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Security First
+Even in a 30-minute build, security matters. The AI communication is handled in a server-side route handler, ensuring that the `GEMINI_API_KEY` remains strictly confidential.
+
+## 📖 Building Philosophy
+I believe in **Speed to Value**. In an early-stage startup, the goal is to build robust, clean architectures that allow for rapid iteration without incurring technical debt. I write code that is readable, maintainable, and designed for a non-technical founder to understand and trust.
+
+---
+Built with ❤️ by Julius
