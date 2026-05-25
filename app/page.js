@@ -32,7 +32,7 @@ export default function Home() {
 
       const data = await response.json();
       if (!response.ok) {
-        throw new Error(data.error?.message || 'API error');
+        throw new Error(data.details || data.error?.message || data.error || 'API error');
       }
       const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
       
