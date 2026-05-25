@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req) {
   try {
+    // Main API handler for question generation
     const body = await req.json();
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
